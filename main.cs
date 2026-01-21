@@ -33,7 +33,7 @@ namespace HealthWarningAlwaysAudible
         public const string pluginName = "Health Warning Always Audible";
 
         // Year.Month.Version.Bugfix
-        public const string pluginVersion = "26.1.1.0";
+        public const string pluginVersion = "26.1.1.1";
 
         public static HealthWarningAlwaysAudible Instance;
 
@@ -246,7 +246,7 @@ namespace HealthWarningAlwaysAudible
         {
             if (__instance == null || woundAudio == null)
                 return;
-            bool flag = !WorldGeneration.unchipped && __instance.isCriticallyDying;
+            bool flag = !WorldGeneration.unchipped && __instance.isCriticallyDying && __instance.alive;
             if (flag && !woundAudio.isPlaying)
             {
                 woundAudio.Play();
